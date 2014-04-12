@@ -1,4 +1,7 @@
 lesson.im
 =========
 
-A Collaborative Lesson Mawarenagement Soft
+A Collaborative Lesson Management Software
+
+
+http://lesson.im
