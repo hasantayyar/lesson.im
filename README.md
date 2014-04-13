@@ -1,3 +1,6 @@
+**Warning** : This project is still under development.
+
+
 lesson.im
 =========
 
@@ -13,4 +16,9 @@ Installation
     composer update
     php artisan migrate
 
+Tuning
+======
 
+Performance tuning for composer
+
+    composer dump-autoload --optimize
