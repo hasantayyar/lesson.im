@@ -1,25 +1,26 @@
 <?php
 class HomeController extends BaseController {
+	protected $layout = 'layouts.main';
 	public function showHome()
 	{
-		return View::make('home');
+		$this->layout->content = View::make('home');
 	}
 	public function showLogin()
 	{
-		return View::make('login');
+		$this->layout->content =  View::make('login');
 	}
 
 	public function doLogin()
 	{
 		$rules = array(
-			'email'    => 'required|email', // make sure the email is an actual email
-			'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
+			'email'    => 'required|email', 
+			'password' => 'required|alphaNum|min:3' 
 		);
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator->fails()) {
 			return Redirect::to('login')
-				->withErrors($validator) // send back all errors to the login form
-				->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+				->withErrors($validator)
+				->withInput(Input::except('password'));
 		} else {
 			$userdata = array(
 				'email' 	=> Input::get('email'),
